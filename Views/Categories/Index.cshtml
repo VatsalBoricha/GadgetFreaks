@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<GadgetFreaks.Models.Category>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "List of categories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,6 +13,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GadgetId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CategoryName)
             </th>
@@ -28,6 +31,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GadgetId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>

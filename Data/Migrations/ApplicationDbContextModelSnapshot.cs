@@ -41,6 +41,9 @@ namespace GadgetFreaks.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("GadgetId")
+                        .HasColumnType("int");
+
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");

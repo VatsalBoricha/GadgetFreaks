@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GadgetFreaks.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230809025604_InitializeModels")]
-    partial class InitializeModels
+    [Migration("20230809040415_initializedModels")]
+    partial class initializedModels
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,6 +42,9 @@ namespace GadgetFreaks.Data.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GadgetId")
+                        .HasColumnType("int");
 
                     b.HasKey("CategoryID");
 

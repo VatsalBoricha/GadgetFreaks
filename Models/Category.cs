@@ -9,6 +9,7 @@ namespace GadgetFreaks.Models
     {
         [Key]
         public int CategoryID { get; set; }
+        public int GadgetId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -20,7 +21,7 @@ namespace GadgetFreaks.Models
         public DateTime CreatedAt { get; set; }
 
         // Navigation property for the one-to-many relationship with Gadgets
-        public ICollection<Gadget> Gadgets { get; set; } = new List<Gadget>();
+        public List<Gadget>? Gadgets { get; set; }
 
     }
 

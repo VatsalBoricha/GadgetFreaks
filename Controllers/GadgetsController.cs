@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GadgetFreaks.Data;
 using GadgetFreaks.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GadgetFreaks.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class GadgetsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -17,9 +17,21 @@ namespace GadgetFreaks
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
+
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddAuthentication()
+                     .AddGoogle(options =>{
+                         IConfigurationSection googleAuth = builder.Configuration.GetSection
+                         ("Authentication: Google");
+
+                         //Read google API kry values from config
+                         options.ClientId = googleAuth["ClientId"];
+                         options.ClientSecret = googleAuth["ClientSecret"];
+            });
 
             var app = builder.Build();
 

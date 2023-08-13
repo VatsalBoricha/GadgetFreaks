@@ -55,9 +55,18 @@
                 </td>
                 <td>
 
-                    <a asp-action="GadgetDetails" asp-route-id="@item.GadgetID">View Gadget</a> |
-                    <a asp-controller="Carts" asp-action="AddToCart" asp-route-id="@item.GadgetID">Add to Cart </a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                     <form class = "d-inline" asp-action="AddToCart">
+                            <input type="hidden" name="gadgetId" value="@item.GadgetID" />
+                            <input type="hidden" name="quantity" value="1" />
 
+                            <input type="submit" value="Quick Add" class="btn btn-primary"/>
+                       
+                    </form>
+                        }
+
+                    <a class="btn btn-secondary" asp-action="GadgetDetails" asp-route-id="@item.GadgetID">View Gadget</a>
                 </td>
             </tr>
         }

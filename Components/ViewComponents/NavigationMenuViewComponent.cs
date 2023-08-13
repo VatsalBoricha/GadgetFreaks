@@ -18,7 +18,7 @@ namespace GadgetFreaks.Components.ViewComponents
                 new MenuItem{Controller = "Gadgets" , Action= "Index" , Label="Gadget" ,DropDownItems =new List<MenuItem>{
                 new MenuItem{Controller = "Gadgets" , Action= "Index" , Label="List"},
                 new MenuItem{Controller = "Gadgets" , Action= "Create" , Label="Create"},
-                }, Authorized = true  , AllowedRoles = new List<string> {"Administrator"} },
+                }, Authorized = true },
                 new MenuItem{Controller = "Home" , Action= "Privacy" , Label="Privacy"},
             };
             return View(menuItems);

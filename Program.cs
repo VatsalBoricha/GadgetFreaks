@@ -22,16 +22,16 @@ namespace GadgetFreaks
 
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAuthentication().AddGoogle(options =>
+            {
 
-            builder.Services.AddAuthentication()
-                     .AddGoogle(options =>{
-                         IConfigurationSection googleAuth = builder.Configuration.GetSection
-                         ("Authentication: Google");
+                IConfigurationSection googleAuth = builder.Configuration.GetSection("Authentication:Google");
 
-                         //Read google API kry values from config
-                         options.ClientId = googleAuth["ClientId"];
-                         options.ClientSecret = googleAuth["ClientSecret"];
-            });
+
+                options.ClientId = googleAuth["ClientId"];
+                options.ClientSecret = googleAuth["ClientSecret"];
+            }); 
+
 
             var app = builder.Build();
 

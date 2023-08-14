@@ -50,6 +50,24 @@
     </dl>
 </div>
 <div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form class="d-inline" asp-action="AddToCart">
+            <input type="hidden" name="gadgetId" value="@Model.GadgetID" />
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Quantity</span>
+                </div>
+
+                <input class="form-control" type="number" name="quantity" min="1" step="1" value="1" />
+
+                <div class="input-group-append">
+                    <input type="submit" value="Add to Cart" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    }
     <a asp-action="Edit" asp-route-id="@Model?.GadgetID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

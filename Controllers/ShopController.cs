@@ -188,7 +188,7 @@ namespace GadgetFreaks.Controllers
                         Currency = "cad",
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
-                            Name = "Gadget Purchase",
+                            Name = "GadgetFreaks Purchase",
                         },
                     },
                     Quantity = 1,
@@ -204,7 +204,7 @@ namespace GadgetFreaks.Controllers
             };
             var service = new SessionService();
             Session session = service.Create(options);
-
+                
             Response.Headers.Add("Location", session.Url);
             return new StatusCodeResult(303);
         }
